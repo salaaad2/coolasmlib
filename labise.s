@@ -1,17 +1,11 @@
-global _start
-
-
-section .data
-  msg db "fuck you nig", 0x0a
-  len equ $ - msg
+global maxofthree
 
 section .text
-_start:
-  mov eax,4
-  mov ebx,1
-  mov ecx,msg
-  mov edx,len
-  int 0x80
-  mov eax,1
-  mov ebx,0
-  int 0x80
+
+maxofthree:
+  cmp     edi, esi  ; compare args 1 and 2
+  cmovl   edi, esi  ; set edi to the larger
+  cmp     edi, edx  ; compare against arg 3
+  cmovl   edi, edx  ; set edi to the larger
+  mov     eax, edi  ; return value in rax
+  ret
