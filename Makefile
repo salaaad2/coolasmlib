@@ -20,6 +20,8 @@ ASRCS  = $(SRCDIR)ft_strlen.s
 ASRCS += $(SRCDIR)ft_strcpy.s
 ASRCS += $(SRCDIR)ft_strcmp.s
 ASRCS += $(SRCDIR)ft_strdup.s
+ASRCS += $(SRCDIR)ft_write.s
+ASRCS += $(SRCDIR)ft_read.s
 
 OBJS = ${ASRCS:.s=.o}
 
@@ -34,7 +36,7 @@ $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 run: $(NAME)
-	clang -lasm -L. main.c
+	clang main.c -lasm -L.
 	./a.out
 
 clean:

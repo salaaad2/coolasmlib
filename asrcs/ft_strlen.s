@@ -7,8 +7,7 @@ ft_strlen:
 .getnextchar:
 	add	al, 1
 	movsx	rcx, al
-    cmp	[rdi + rcx], byte 0
+	cmp	[rdi + rcx], byte 0
 	jne	.getnextchar
 	movsx	eax, al
 	ret
-.Lfunc_end0:
