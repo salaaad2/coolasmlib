@@ -6,10 +6,10 @@ global ft_read
 
 section .text
 
-ft_write:
-    mov rax, 3                  ;4 : read syscall
+ft_read:
+    mov rax, 3                  ;3 :  syscall
     mov rbx, rdi
     mov rcx, rsi
-    mov rdx, rdx
+    mov rdx, 5
     int 0x80
     ret

@@ -36,7 +36,7 @@ $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 run: $(NAME)
-	clang main.c -lasm -L.
+	clang asrcs/main.c -lasm -L.
 	./a.out
 
 clean:

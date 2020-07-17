@@ -1,22 +1,16 @@
-#include <fcntl.h>
-#include <unistd.h>
+#include "../inc/libasm.h"
 #include <stdio.h>
-#include <string.h>
-
-extern ssize_t ft_read(int fd, void *buf, unsigned int count);
-extern ssize_t ft_write(int fd, const void *buf, unsigned int len);
-extern int ft_strlen(char str[]);
-extern int ft_strcmp(char st1[], char st2[]);
-extern char *ft_strcpy(char st1[], char st2[]);
-extern char *ft_strdup(char s[]);
+#include <stdlib.h>
 
 int main(void)
 {
     char dest[5];
-    char str[17];
+    char *str;
     int fd;
 
+    str = (char*)malloc(sizeof(char) * 5);
     fd = open("Makefile", 0);
+
     printf("strlen :%d\n", ft_strlen("abcde"));
     printf("strcmp :%d\n", ft_strcmp("qweqweqwe", "qweqweqwe"));
     printf("strcpy :%s\n", ft_strcpy(dest, "abcde"));
