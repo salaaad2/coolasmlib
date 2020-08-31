@@ -14,7 +14,7 @@ ARCH = -f elf64
 NAME = libasm.a
 RM = rm -f
 
-SRCDIR = asrcs/
+SRCDIR = src/
 
 ASRCS  = $(SRCDIR)ft_strlen.s
 ASRCS += $(SRCDIR)ft_strcpy.s
@@ -36,7 +36,7 @@ $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 run: $(NAME)
-	clang asrcs/main.c -lasm -L.
+	clang $(SRCDIR)main.c -lasm -L.
 	./a.out
 
 clean:

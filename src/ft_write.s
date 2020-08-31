@@ -7,9 +7,9 @@ global ft_write
 section .text
 
 ft_write:
-    mov rax, 4                  ;4 : write syscall
+    mov rax, 1                  ;4 : write syscall
     mov rbx, rdi
     mov rcx, rsi
     mov rdx, rdx
-    int 0x80
+    syscall
     ret
