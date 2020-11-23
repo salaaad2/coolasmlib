@@ -5,18 +5,19 @@
 int main(void)
 {
     char dest[5];
-    char *str;
+    /* char *str; */
+    char str[5];
     char writeme[5] = "jajaj";
     int fd;
 
-    str = (char*)malloc(sizeof(char) * 5);
+    /* str = (char*)malloc(sizeof(char) * 5); */
     fd = open("Makefile", 0);
 
     printf("strlen :%d\n", ft_strlen("abcde"));
     printf("strcmp :%d\n", ft_strcmp("qweqweqwe", "qweqweqwe"));
     printf("strcpy :%s\n", ft_strcpy(dest, "abcde"));
     printf("strdup :%s\n", ft_strdup("nique les stups"));
-    printf("write  :%zd\n", ft_write(1, "asdasd", 5));
+    printf("write  :%zd\n", ft_write(1, writeme, 5));
     printf("read   :%zd\n", ft_read(fd, str, 5));
     printf("str    :%s\n", str);
 }

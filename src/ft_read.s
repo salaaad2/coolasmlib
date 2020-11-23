@@ -7,7 +7,7 @@ global ft_read
 section .text
 
 ft_read:
-    mov rax, 0                  ;3 :  syscall
+    mov rax, 0                  ;64bit read syscall
     mov rbx, rdi
     mov rcx, rsi
     mov rdx, rdx
