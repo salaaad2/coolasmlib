@@ -3,11 +3,13 @@ global ft_strlen
 section .text
 
 ft_strlen:
-	mov	al, -1
+	mov	ebx, 0
 .getnextchar:
-	add	al, 1
-	movsx	rcx, al
+	movsx	rcx, ebx
 	cmp	[rdi + rcx], byte 0
-	jne	.getnextchar
-	movsx	eax, al
+	jne	.increbx
+	mov	eax, ebx
 	ret
+.increbx:
+	inc ebx
+	jmp .getnextchar
