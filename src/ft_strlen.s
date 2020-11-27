@@ -3,7 +3,7 @@ global ft_strlen
 section .text
 
 ft_strlen:
-	mov	ebx, 0
+	xor ebx, ebx
 .getnextchar:
 	movsx	rcx, ebx
 	cmp	[rdi + rcx], byte 0

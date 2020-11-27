@@ -11,7 +11,7 @@ ft_strdup:
 	push	rax
 	mov	r14, rdi
 	call	ft_strlen
-	movsx	rdi, al
+	movsx	rdi, ebx
 	call	malloc
 	mov	rbx, rax
 	test	rax, rax
