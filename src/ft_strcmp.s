@@ -3,18 +3,21 @@ global	ft_strcmp
 section	.text
 
 ft_strcmp:
-	xor	eax, eax
+	xor	rax, rax
+	xor	rcx, rcx
+	xor	rdx, rdx
 .loop_strs:
-	movzx	edx, byte [rdi + rax]
-	movsx	ecx, byte [rsi + rax]
-	test	ecx, ecx
+	cmp	byte [rdi + rcx], 0x0
 	je	.ret_val
-	test	dl, dl
+	cmp	byte [rsi + rcx], 0x0
 	je	.ret_val
-	add	rax, 1
-	cmp	dl, cl
-	je	.loop_strs
+	mov dl, byte [rsi + rcx]
+	cmp byte [rdi + rcx], dl
+	jne	.ret_val
+	inc	rcx
+	jmp	.loop_strs
 .ret_val:
-	movsx	eax, dl
-	sub	eax, ecx
+    mov al, byte [rdi + rcx]
+    mov dl, byte [rsi + rcx]
+	sub	rax, rdx
 	ret

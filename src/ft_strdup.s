@@ -1,7 +1,8 @@
 global ft_strdup
 
+extern malloc
+
 section	.text
-  extern malloc
   extern ft_strcpy
   extern ft_strlen
 
@@ -12,7 +13,7 @@ ft_strdup:
 	mov	r14, rdi
 	call	ft_strlen
 	movsx	rdi, ebx
-	call	malloc
+	call	malloc WRT ..plt
 	mov	rbx, rax
 	test	rax, rax
 	je	.LBB0_2

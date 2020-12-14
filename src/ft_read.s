@@ -1,15 +1,24 @@
+section .text
 global ft_read
+extern __errno_location
 
  ; rdi fd
  ; rsi message
  ; rdx len
 
-section .text
 
 ft_read:
-    mov rax, 0                  ;64bit read syscall
-    mov rbx, rdi
-    mov rcx, rsi
-    mov rdx, rdx
+    mov rax, 0x00                  ;64bit read syscall
     syscall
+    test rax, rax
+    jnl .return
+
+.error:
+    neg rax
+    mov rdx, rax
+    call __errno_location WRT ..plt
+    mov [rax], rdx
+    mov rax, -1
+
+.return:
     ret

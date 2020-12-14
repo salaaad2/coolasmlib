@@ -173,9 +173,3 @@ tags
 .vim
 
 # End of https://www.gitignore.io/api/c,vim,linux,macos,emacs
-
-cub3d
-Cub3D
-*.bmp
-*.core
-mlx-test

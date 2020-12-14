@@ -36,7 +36,7 @@ $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 run: $(NAME)
-	clang $(SRCDIR)main.c -lasm -L. -fPIC
+	clang  -fPIC $(SRCDIR)main.c -lasm -L.
 	./a.out
 
 clean:
