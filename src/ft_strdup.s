@@ -13,7 +13,7 @@ ft_strdup:
 	mov	r14, rdi
 	call	ft_strlen
 	movsx	rdi, ebx
-	call	malloc WRT ..plt
+	call	malloc
 	mov	rbx, rax
 	test	rax, rax
 	je	.LBB0_2
