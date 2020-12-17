@@ -1,22 +1,17 @@
+section	.text
 global	ft_strcpy
 
-section	.text
-
 ft_strcpy:
-	mov	al, byte [rsi]
-	mov	rcx, rdi
-	test	al, al
-	je	.ret_char
-	add	rsi, 1
-	mov	rcx, rdi
+	xor rcx, rcx
+	xor rdx, rdx
+	mov rax, rdi
 .copy_char:
-	mov	byte [rcx], al
-	movzx	eax, byte [rsi]
-	add	rcx, 1
-	add	rsi, 1
-	test	al, al
-	jne	.copy_char
+	cmp byte [rsi + rcx], 0x0
+	je  .ret_char
+	mov dl, byte [rsi + rcx]
+	mov byte [rdi + rcx], dl
+	inc rcx
+	jmp	.copy_char
 .ret_char:
-	mov	byte [rcx], 0
-	mov	rax, rdi
+	mov byte [rdi + rcx], 0x0
 	ret

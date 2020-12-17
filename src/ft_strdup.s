@@ -7,22 +7,20 @@ section	.text
   extern ft_strlen
 
 ft_strdup:
-	push	r14
-	push	rbx
-	push	rax
-	mov	r14, rdi
+	push rdi
 	call	ft_strlen
-	movsx	rdi, ebx
+	inc rax
+	mov rdi, rax
 	call	malloc
-	mov	rbx, rax
-	test	rax, rax
-	je	.return
-	mov	rdi, rbx
-	mov	rsi, r14
-	call	ft_strcpy
+	cmp rax, 0x0
+	jne	.return
+
+.error:
+	mov rax, 0x0
+	ret
 .return:
-	mov	rax, rbx
-	add	rsp, 8
-	pop	rbx
-	pop	r14
+	pop rdi
+	mov rsi, rdi
+	mov rdi, rax
+	call ft_strcpy
 	ret
